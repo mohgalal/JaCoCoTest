@@ -26,7 +26,7 @@ jobs:
       - name: Run Tests with JaCoCo
         run: |
           ./gradlew clean test jacocoTestReport jacocoTestCoverageVerification
-          # Fail if coverage < 100%
+          # Fail if coverage < 50%
           ./gradlew jacocoTestCoverageVerification
 
       - name: Upload Coverage Report
