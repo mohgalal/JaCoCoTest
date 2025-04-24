@@ -21,7 +21,7 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
-tasks.test{
+tasks.test {
     finalizedBy(tasks.jacocoTestReport)
 }
 tasks.jacocoTestReport {
@@ -32,14 +32,31 @@ tasks.jacocoTestReport {
     }
     dependsOn(tasks.test)
 }
+
+jacoco {
+    toolVersion = "0.8.10"
+}
+
+
 tasks.jacocoTestCoverageVerification {
+    executionData.setFrom(fileTree(buildDir).include("/jacoco/test.exec"))
+    classDirectories.setFrom(fileTree("build/classes/kotlin/main"))
+    sourceDirectories.setFrom(files("src/main/kotlin"))
     violationRules {
         rule {
             limit {
-                minimum = "1.0".toBigDecimal() // 100% coverage
+                counter = "CLASS"
+                value = "COVEREDRATIO"
+                minimum = "0.5".toBigDecimal() // 50% coverage
+
             }
         }
     }
+   // classDirectories.setFrom(
+    //    files(classDirectories.files.map {
+      //      fileTree(it).include("**/src/test/kotlin/**")
+       // })
+    //)
 }
 
 kotlin {

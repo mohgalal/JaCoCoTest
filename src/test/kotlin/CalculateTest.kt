@@ -46,6 +46,7 @@ class CalculateTest {
         val num1 = 2
         val num2 = 1
 
+
         // When
         val result = calcTwoNumbers.subTwoNumbers(num1, num2)
 
