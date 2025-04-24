@@ -46,7 +46,13 @@ tasks.jacocoTestCoverageVerification {
                 "**/config/**",
                 "**/dto/**",
                 "**/model/**",
-                "**/*Exception*"
+                "**/*Exception*",
+                "**/BuildConfig.class",
+                "**/generated/**",    // Generated code (Lombok, Protobuf, etc.)
+                "**/AutoValue_*",     // AutoValue generated classes
+                "**/*Test.class",     // Test classes themselves
+                "**/R.class",        // Android R files (if applicable)
+
             )
         })
     )
