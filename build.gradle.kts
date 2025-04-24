@@ -40,7 +40,7 @@ jacoco {
 
 tasks.jacocoTestCoverageVerification {
     executionData.setFrom(fileTree(buildDir).include("/jacoco/test.exec"))
-    classDirectories.setFrom(fileTree("build/classes/kotlin/main"))
+    classDirectories.setFrom(fileTree("build/classes/kotlin/main/org/example/Calculate"))
     sourceDirectories.setFrom(files("src/main/kotlin/Calculate"))
     violationRules {
         rule {
