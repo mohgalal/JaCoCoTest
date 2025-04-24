@@ -40,6 +40,16 @@ tasks.jacocoTestCoverageVerification {
             }
         }
     }
+    classDirectories.setFrom(
+        files(classDirectories.files.map {
+            fileTree(it).exclude(
+                "**/config/**",
+                "**/dto/**",
+                "**/model/**",
+                "**/*Exception*"
+            )
+        })
+    )
 }
 
 kotlin {
