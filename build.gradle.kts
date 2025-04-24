@@ -45,7 +45,10 @@ tasks.jacocoTestCoverageVerification {
     violationRules {
         rule {
             limit {
+                counter = "CLASS"
+                value = "COVEREDRATIO"
                 minimum = "0.5".toBigDecimal() // 50% coverage
+
             }
         }
     }
