@@ -40,4 +40,18 @@ class CalculateTest {
 
     }
 
+    @Test
+    fun `Should return22 subtraction of two numbersm when provide valid numbers`() {
+        // Given
+        val num1 = 20
+        val num2 = 10
+
+        // When
+        val result = calcTwoNumbers.subTwoNumbers(num1, num2)
+
+        // Then
+        assertThat(result).isEqualTo(10)
+
+    }
+
 }
