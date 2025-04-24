@@ -41,13 +41,21 @@ jacoco {
 tasks.jacocoTestCoverageVerification {
     executionData.setFrom(fileTree(buildDir).include("/jacoco/test.exec"))
     classDirectories.setFrom(fileTree("build/classes/kotlin/main"))
-    sourceDirectories.setFrom(files("src/main/kotlin"))
+    sourceDirectories.setFrom(files("src/main/kotlin/Calculate"))
     violationRules {
         rule {
             limit {
                 counter = "CLASS"
+                /*
+                * LINE: line coverage
+                BRANCH: branch coverage
+                INSTRUCTION: bytecode instruction coverage
+                METHOD: method coverage
+                CLASS: class coverage
+                 **/
                 value = "COVEREDRATIO"
-                minimum = "0.5".toBigDecimal() // 50% coverage
+                counter = "METHOD"
+                minimum = "1.0".toBigDecimal() // 50% coverage
 
             }
         }
